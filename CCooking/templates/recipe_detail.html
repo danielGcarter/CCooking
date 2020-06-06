@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>{{ recipe.title }}</h1>
+<div class="row">
+    <div class="col-md-4">
+        <p>image will go here</p>
+    </div>
+    <div class="col-md-8">
+        <h5>Submitted by: {{ recipe.author }}</h5>
+        <h5>Recipe Background: {{ recipe.background }}</h5>
+            <h5>Ingredients:</h5>
+            <table>
+                <tbody>
+                    {% for ingredient in ingredients %}
+                    <tr>
+                        <td>{{ ingredient.amount }}</td>
+                        <td>{{ ingredient.unit }}</td>
+                        <td>{{ ingredient.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <h5>Process:</h5>
+            <p>{{ recipe.process }}</p>
+    </div>
+</div>
+{% endblock %}
